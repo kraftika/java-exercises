@@ -1,4 +1,4 @@
-package learning;
+package data.structures;
 
 import static org.junit.Assert.fail;
 

@@ -1,4 +1,4 @@
-package learning;
+package data.structures;
 
 public class LinkedList<Integer> {
 	private int data;

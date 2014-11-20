@@ -1,4 +1,4 @@
-package learning;
+package data.structures;
 
 public class QuickSort {
 	// Array list numbers
