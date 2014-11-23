@@ -1,4 +1,4 @@
-package data.structures;
+package euler;
 
 public class ThreeAndFive {
 
