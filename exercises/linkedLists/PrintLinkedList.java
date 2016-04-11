@@ -1,4 +1,4 @@
-package linked.lists;
+package linkedLists;
 
 public class PrintLinkedList {
 	public static void main(String...arg){

@@ -1,22 +1,25 @@
-package linked.lists;
+package linkedLists;
+
 /**
  * Created by ipistol on 4/5/15.
  */
-public class SortedLinkedList {
-  public static void main(String[] args){
-    LinkedList list = new LinkedList();
+public class LinkedList {
 
-    int[] array = new int[]{11,8,3,12,4,9};
-    Node head = null;
-
-    for (int k = 0;k < array.length; k++){
-      head = addNodeInSortedList(head, array[k]);
+  public Node addNode(Node head, int data) {
+    if (head == null) {
+      return new Node(data);
     }
 
-    list.printNodes(head);
+    Node newNode = new Node(data);
+    newNode.setNext(head);
+    return newNode;
   }
-  
-  public static Node addNodeInSortedList(Node head, int data){
+
+  public void remove(Node head, int data){
+
+  }
+
+  public Node addNodeInSortedList(Node head, int data){
     if (data == 0) {
       return head;
     }
@@ -26,16 +29,15 @@ public class SortedLinkedList {
     }
 
     Node p = head;
-    Node q = p;
     while(p.getNext() != null && p.getData() < data){
-    	q = p;
     	p = p.getNext();
     }
     
     if (head == p) {
     	Node n = new Node(data);
     	n.setNext(p);
-    	return n;
+    	head = p;
+    	return head;
     }
     
     if (p.getNext() == null) {
@@ -46,11 +48,19 @@ public class SortedLinkedList {
     
     if (p != head && p.getNext() != null){
     	Node n  = new Node(data);
-    	n.setNext(p);
-    	q.setNext(n);
+    	n.setNext(p.getNext());
+    	p.setNext(n);
     	return head;
     }
     
     return head;
-	}
+  }
+  
+  public void printNodes(Node p){
+	  if (p == null) {
+		  return;
+	  }
+	  System.out.print(p.getData() + " ");
+	  printNodes(p.getNext());
+  }
 }

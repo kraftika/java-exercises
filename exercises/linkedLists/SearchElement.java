@@ -1,4 +1,4 @@
-package linked.lists;
+package linkedLists;
 
 public class SearchElement {
 	public static void main(String[] args){

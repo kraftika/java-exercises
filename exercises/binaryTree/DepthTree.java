@@ -1,4 +1,4 @@
-package binary.tree;
+package binaryTree;
 
 public class DepthTree {
 

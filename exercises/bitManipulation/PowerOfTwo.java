@@ -1,4 +1,4 @@
-package bit.manipulation;
+package bitManipulation;
 
 public class PowerOfTwo {
 
