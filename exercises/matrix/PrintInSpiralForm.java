@@ -3,7 +3,7 @@ package matrix;
 import java.util.Random;
 
 public class PrintInSpiralForm {
-	static int n = 5;
+	static int n = 20;
 	static int m = 5;
 	
 	public static void main(String[] args) {
