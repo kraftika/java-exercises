@@ -1,36 +1,38 @@
 package permutations;
 
+import java.util.ArrayList;
+
 public class PermutationsOfSet {
 
 	public static String setOfStrings = "abc";
 	
 	public static void main(String[] args) {
 		System.out.println("Permutations of a string" + setOfStrings);
-		permutate(setOfStrings);
+		ArrayList<String> perm = getPermutations(setOfStrings);
+		for (int i = 0; i < perm.size(); i++) {
+			System.out.println(perm.get(i));
+		}
 	}
 
-	public static void permutate(String s) {
-		int sLength = s.length();
-		int i = 0;
-		String permString = "", before = "", after = "";
+	
+	public static ArrayList<String> getPermutations(String text) {
+		ArrayList<String> results = new ArrayList<String>();;
 		
-		while(i < sLength) {
-			before = "";
-			after = "";
-			
-			if (i > 0) {
-				before = s.substring(0, i);
-			}
-			
-			if (i == sLength - 1) {
-				after = "" + s.charAt(i);
-			} else {
-				after = s.substring(i + 1, sLength - i);;
-			}
-						
-			permString = s.charAt(i) + before + after;
-			System.out.println(permString);
-			i++;
+		if (text.length() == 1) {
+			results.add(text);
 		}
+		
+		String result = "";
+		
+		for (int i = 0; i < text.length(); i++) {
+			result = text.substring(0, i) + text.substring(i+1);
+			ArrayList<String> innerPerm = getPermutations(result);
+			
+			for (int j = 0; j < innerPerm.size(); j++) {
+				results.add(text.charAt(i) + innerPerm.get(j));	
+			}
+		}
+		
+		return results;
 	}
 }
