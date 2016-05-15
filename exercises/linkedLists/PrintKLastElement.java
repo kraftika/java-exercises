@@ -7,7 +7,7 @@ public class PrintKLastElement {
 	public static void main(String[] args) {
 		Node head = buildList(4);
 		printList(head);
-		Node r = printKLElement(head, 5);
+		Node r = printKLElement(head, 3);
 		System.out.println();
 		
 		if (r == null) {
