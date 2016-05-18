@@ -31,12 +31,6 @@ public class Atoi {
 			str = str.substring(1);
 		}
 		
-//        for (int i = 0; i < str.length(); i++) {
-//            if ((int)str.charAt(i) < 48 || (int)str.charAt(i) > 57) {
-//               return 0; 
-//            }
-//        }
-		
 		if (str.length() == 1 && str.charAt(0) == '0') {
 			return 0;
 		}
