@@ -5,12 +5,41 @@ import java.util.Random;
 public class ReverseLinkedList {
 
 	public static void main(String[] args) {
-		Node head = buildList(10);
+		Node head = buildList(3);
 		printList(head);
-		Node nHead = reverseLinkedList(head);
+		Node nHead = reverseList(head);
 		System.out.println();
 		printList(nHead);
 	}
+	
+    public static Node reverseList(Node head) {
+        if (head == null) {
+            return null;
+        }
+        
+        if (head.getNext() == null) {
+            return head;
+        }
+        
+        Node node = null;
+        Node nHead = null;
+        Node p = head;
+        
+        while(p != null) {
+            if (nHead == null) {
+                node = new Node(p.getData());
+                node.setNext(null);
+                nHead = node;
+            } else {
+                node = new Node(p.getData());
+                node.setNext(nHead);
+                nHead = node;
+            }
+            p = p.getNext();
+        }
+        
+        return nHead;
+    }
 	
 	public static Node reverseLinkedList(Node head) {
 		Node p = head;
