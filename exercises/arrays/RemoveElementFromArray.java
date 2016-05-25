@@ -1,8 +1,5 @@
 package arrays;
 
-import java.util.Arrays;
-import java.util.List;
-
 public class RemoveElementFromArray {
 
 	public static void main(String[] args) {

@@ -1,8 +1,5 @@
 package bitManipulation;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-
 public class PowerOfTwo {
 
   public static void main(String[] args) {

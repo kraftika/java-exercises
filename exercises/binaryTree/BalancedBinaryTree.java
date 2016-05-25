@@ -48,7 +48,6 @@ public class BalancedBinaryTree {
 		Node root = new Node(1);
 		
 		Node n1 = new Node(4);
-		Node n2 = new Node(5);
 		Node n3 = new Node(7);
 			
 		root.left = n1;

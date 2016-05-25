@@ -17,7 +17,7 @@ public class PythagoreanTriplet {
 	}
 	
 	public static void optimalSolution(){
-		int a = 0, b = 0, c = 0;
+		int c = 0;
 		boolean founded = false;
 		int mLimit = 1000;
 		
@@ -40,7 +40,7 @@ public class PythagoreanTriplet {
 	}
 	
 	public static void bruteForce(){
-		int a = 0, b = 0, c = 0;
+//		int a = 0, b = 0, c = 0;
 		boolean founded = false;
 		
 		long start = System.currentTimeMillis();
