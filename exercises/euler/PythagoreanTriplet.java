@@ -40,7 +40,6 @@ public class PythagoreanTriplet {
 	}
 	
 	public static void bruteForce(){
-//		int a = 0, b = 0, c = 0;
 		boolean founded = false;
 		
 		long start = System.currentTimeMillis();
