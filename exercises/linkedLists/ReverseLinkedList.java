@@ -1,41 +1,70 @@
 package linkedLists;
 
-import java.util.Random;
+import utils.LinkedListUtils;
+import utils.ListNode;
 
 public class ReverseLinkedList {
 
 	public static void main(String[] args) {
-		Node head = buildList(3);
-		printList(head);
-		Node nHead = reverseList(head);
-		System.out.println();
-		printList(nHead);
+		ListNode head = LinkedListUtils.buildList(7);
+		LinkedListUtils.print(head);
+		ListNode nHead = reverseList(head);
+		LinkedListUtils.print(nHead);
 	}
 	
-    public static Node reverseList(Node head) {
+	public static ListNode reverse2(ListNode head) {
+		if (head == null) {
+			return null;
+		}
+		
+		if (head.next() == null) {
+			return head;
+		}
+		
+		ListNode p = head;
+		ListNode q = null;
+		ListNode newHead = null;
+		
+		while(p != null) {
+			if (newHead == null) {
+				newHead = p;
+				newHead.next(null);	
+			} else {
+				newHead = p;
+				newHead.next(q);
+			}
+			
+			q = p;
+			p = p.next();
+		}
+		
+		return newHead;
+	}
+	
+    public static ListNode reverseList(ListNode head) {
         if (head == null) {
             return null;
         }
         
-        if (head.getNext() == null) {
+        if (head.next() == null) {
             return head;
         }
         
-        Node node = null;
-        Node nHead = null;
-        Node p = head;
+        ListNode node = null;
+        ListNode nHead = null;
+        ListNode p = head;
         
         while(p != null) {
             if (nHead == null) {
-                node = new Node(p.getData());
-                node.setNext(null);
+                node = new ListNode(p.data());
+                node.next(null);
                 nHead = node;
             } else {
-                node = new Node(p.getData());
-                node.setNext(nHead);
+                node = new ListNode(p.data());
+                node.next(nHead);
                 nHead = node;
             }
-            p = p.getNext();
+            p = p.next();
         }
         
         return nHead;
@@ -58,37 +87,37 @@ public class ReverseLinkedList {
 		return newHead;
 	}
 	
-	public static void printList(Node p){
-		if (p == null)  {
-			return;
-		}
-		System.out.format("%d ", p.getData());
-		printList(p.getNext());
-	}
-	
-	public static Node buildList(int capacity) {
-		if (capacity == 0) {
-			return null;
-		}
-		
-		Node head = new Node(randomNumber(20));
-		Node p = head;
-		Node q = null;
-		
-		/*
-		 * The head is already created
-		 */
-		for (int i = 0; i < capacity - 1; i++) {
-			q = new Node(randomNumber(20));
-			p.setNext(q);
-			p = q;
-		}
-		
-		return head;
-	}
-	
-	public static int randomNumber(int n) {
-		Random random = new Random();
-		return 1 + random.nextInt(100) % n;
-	}
+//	public static void printList(Node p){
+//		if (p == null)  {
+//			return;
+//		}
+//		System.out.format("%d ", p.getData());
+//		printList(p.getNext());
+//	}
+//	
+//	public static Node buildList(int capacity) {
+//		if (capacity == 0) {
+//			return null;
+//		}
+//		
+//		Node head = new Node(randomNumber(20));
+//		Node p = head;
+//		Node q = null;
+//		
+//		/*
+//		 * The head is already created
+//		 */
+//		for (int i = 0; i < capacity - 1; i++) {
+//			q = new Node(randomNumber(20));
+//			p.setNext(q);
+//			p = q;
+//		}
+//		
+//		return head;
+//	}
+//	
+//	public static int randomNumber(int n) {
+//		Random random = new Random();
+//		return 1 + random.nextInt(100) % n;
+//	}
 }
