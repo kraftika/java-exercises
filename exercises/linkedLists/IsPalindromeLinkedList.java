@@ -51,8 +51,6 @@ public class IsPalindromeLinkedList {
 			q = q.next();
 		}
 		
-		System.out.println(q.data());
-		
 		ListNode halfOfList = counter % 2 == 1 ? q.next() : q;
 		ListNode reversedListHead = null; 
 		
