@@ -45,7 +45,7 @@ public class SortedLinkedList {
     } 
     
     if (p != head && p.getNext() != null){
-    	Node n  = new Node(data);
+    	Node n = new Node(data);
     	n.setNext(p);
     	q.setNext(n);
     	return head;

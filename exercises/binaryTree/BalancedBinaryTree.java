@@ -1,16 +1,37 @@
 package binaryTree;
 
+import utils.BinaryTreeUtils;
+import utils.TreeNode;
+
 public class BalancedBinaryTree {
 
 	public static void main(String[] args) {
-		Node r = buildTree();
-		inorder(r);
+		TreeNode r = buildTree();
+		BinaryTreeUtils.inorder(r);
 		System.out.println();
-		String resultMessage = getMax(r) - getMin(r) <= 1 ? "The tree is balanced" : "The is not balanced";
+//		String resultMessage = getMax(r) - getMin(r) <= 1 ? "The tree is balanced" : "The is not balanced";
+		String resultMessage = isBalanced(r) ? "The tree is balanced" : "The is not balanced";
 		System.out.println(resultMessage);
 	}
 	
-	public static int getMax(Node r) {
+    public static boolean isBalanced(TreeNode root) {
+    	System.out.println(getDepth(root.left));
+    	System.out.println(getDepth(root.right));
+        return getDepth(root.left) - getDepth(root.right) <= 1; 
+    }
+    
+    public static int getDepth(TreeNode root) {
+    	if (root == null) {
+    		return 0;
+    	}
+    	
+    	int maxLeft = getDepth(root.left);
+    	int maxRight = getDepth(root.right);
+    	
+    	return 1 + Math.max(maxLeft, maxRight);
+    }
+	
+	public static int getMax(TreeNode r) {
 		int maxl = 0, maxr = 0;
 		if (r == null) {
 			return 0;
@@ -22,7 +43,7 @@ public class BalancedBinaryTree {
 		return Math.max(maxl, maxr);
 	}
 	
-	public static int getMin(Node r) {
+	public static int getMin(TreeNode r) {
 		int maxl = 0, maxr = 0;
 		if (r == null) {
 			return 0;
@@ -34,7 +55,7 @@ public class BalancedBinaryTree {
 		return Math.min(maxl, maxr);
 	}
 	
-	public static void inorder(Node r) {
+	public static void inorder(TreeNode r) {
 		if (r == null) {
 			return;
 		}
@@ -44,15 +65,13 @@ public class BalancedBinaryTree {
 		inorder(r.right);
 	}
 	
-	public static Node buildTree() {
-		Node root = new Node(1);
+	public static TreeNode buildTree() {
+		TreeNode root = new TreeNode(4);
+		root.left = new TreeNode(2);
+		root.right = new TreeNode(8);
+		root.right.right = new TreeNode(10);
+		root.right.right.right = new TreeNode(13);
 		
-		Node n1 = new Node(4);
-		Node n3 = new Node(7);
-			
-		root.left = n1;
-		n1.right = n3;
-			
 		return root;
 	}
 }
