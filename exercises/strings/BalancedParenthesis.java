@@ -2,6 +2,7 @@ package strings;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Stack;
 
 public class BalancedParenthesis {
@@ -47,6 +48,46 @@ public class BalancedParenthesis {
 		return isBalanced;
 	}
 	
+    public static boolean isValid(String s) {
+    	List<Character> openBrackets = new ArrayList<Character>();
+    	openBrackets.add('(');
+    	openBrackets.add('[');
+    	openBrackets.add('{');
+    	
+    	List<Character> closedBrackets = new ArrayList<Character>();
+    	closedBrackets.add(')');
+    	closedBrackets.add(']');
+    	closedBrackets.add('}');
+    	
+    	char indexedChar;
+    	Stack<Character> stack = new Stack<Character>();
+    	
+		if (s.length() == 0) {
+			return true;
+		}
+		
+		for (int i = 0; i < s.length(); i++) {
+			indexedChar = s.charAt(i);
+			if (openBrackets.contains(indexedChar)) {
+				int pos = openBrackets.indexOf(indexedChar);
+				stack.push(closedBrackets.get(pos));
+			} else if (closedBrackets.contains(indexedChar)) {
+				if (stack.peek() == indexedChar) {
+					stack.pop();
+				}
+				else {
+					return false;
+				}
+			}
+		}
+		
+		if (stack.size() > 0) {
+			return false;
+		}
+		
+		return true;
+    }
+	
 	public static void main(String[] args) {
 		parenthesis.put('(', ')');
 		parenthesis.put('[', ']');
@@ -55,16 +96,19 @@ public class BalancedParenthesis {
 		String text;
 		ArrayList<String> testSuite = new ArrayList<String>();
 		testSuite.add("");
-		testSuite.add("(");
+		testSuite.add(")");
 		testSuite.add("[]");
 		testSuite.add("()");
 		testSuite.add("(}");
 		testSuite.add("(ssaas");
 		testSuite.add("[({)}]");
+		testSuite.add("[()]");
+		testSuite.add("[]()[]");
 		
 		for (int i = 0; i < testSuite.size(); i++) {
 			text = testSuite.get(i);
-			System.out.println(text + " -> " + isBalancedParenthesis(text));
+//			System.out.println(text + " -> " + isBalancedParenthesis(text));
+			System.out.println(text + " -> " + isValid(text));
 		}
 	}
 }

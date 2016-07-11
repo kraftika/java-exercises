@@ -7,7 +7,7 @@ import java.util.Stack;
 import utils.BinaryTreeUtils;
 import utils.TreeNode;
 
-public class BinaryTreePaths {
+public class PathsTree {
 	
 	public static void main(String[] args) {
 		TreeNode root = buildCustomTree();
