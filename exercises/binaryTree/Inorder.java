@@ -5,13 +5,29 @@ import java.util.Stack;
 import utils.BinaryTreeUtils;
 import utils.TreeNode;
 
-public class TraverseInorder {
+public class Inorder {
 
 	public static void main(String[] args) {
 		TreeNode root = buildCustomTree();
 		BinaryTreeUtils.inorder(root);
 		System.out.println();
-		printInorder(root);
+		inorder2(root);
+	}
+	
+	public static void inorder2(TreeNode root) {
+		Stack<TreeNode> stack = new Stack<TreeNode>();
+		TreeNode p = root;
+		
+	    while(!stack.isEmpty() || p!=null){
+	        if (p!=null){
+	            stack.push(p);
+	            p = p.left;
+	        } else{
+	            TreeNode t = stack.pop();
+	            System.out.format("%d ", t.data);
+	            p = t.right;
+	        }
+	    }
 	}
 	
 	public static void printInorder(TreeNode root) {
@@ -62,7 +78,7 @@ public class TraverseInorder {
 //	 		   n5
 		root.left = n1;
 		root.right = n2;
-//		n1.left = n3;
+		n1.left = n3;
 //		n1.right = n4;
 //		n3.left = n5;
 		
