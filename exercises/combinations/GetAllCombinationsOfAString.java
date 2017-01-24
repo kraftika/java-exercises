@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class GetAllCombinationsOfAString {
 
 	public static void main(String[] args) {
-		ArrayList<String> results = combination("abcd");
+		ArrayList<String> results = combination("abc");
 		for(int i = 0; i < results.size(); i++) {
 			System.out.println(results.get(i));
 		}

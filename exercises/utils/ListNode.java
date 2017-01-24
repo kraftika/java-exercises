@@ -1,8 +1,8 @@
 package utils;
 
 public class ListNode {
-	private int data;
-	private ListNode next;
+	public int data;
+	public ListNode next;
 	
 	public ListNode(int d) {
 		this.data = d;

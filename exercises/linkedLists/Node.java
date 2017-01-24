@@ -4,8 +4,8 @@ package linkedLists;
  * Created by ipistol on 4/5/15.
  */
 public class Node {
-  private int data;
-  private Node nextNode;
+  public int data;
+  public Node nextNode;
 
   public Node(int data){
     this.data = data;

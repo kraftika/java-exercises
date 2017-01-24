@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class LinkedListUtils {
 	
-	private static int maxLimit = 9; 
+	private static int maxLimit = 29; 
 
 	public static void print(ListNode head){
 		if (head == null)  {

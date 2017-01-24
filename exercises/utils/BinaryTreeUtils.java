@@ -58,12 +58,12 @@ public class BinaryTreeUtils {
 	}
 	
 	public static TreeNode buildCustomTree() {
-		TreeNode root = new TreeNode(3);
+		TreeNode root = new TreeNode(13);
 		root.left = new TreeNode(5);
-		root.right = new TreeNode(8);
+		root.right = new TreeNode(16);
 		
 		root.left.left = new TreeNode(4);
-		root.left.right = new TreeNode(9);
+		root.left.right = new TreeNode(7);
 		
 		return root;
 	}
